@@ -79,8 +79,15 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+    let result = sum(sum(a, b)[0], c)[0];
+    let product = multiply(multiply(a, b)[0], c)[0];
+    console.log(result);
+    console.log(product);
 
+    return[result, product, "2,3,4 was passed in as an array of numbers, and 9 is their sum."]
 }
+// Here is the test for sumAndMultiply(); uncomment it to run it
+ testSumAndMultiply(2,3,4);
 
 // Here is the test for sumArray(); uncomment it to run it
 
@@ -100,11 +107,18 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+    let [a,b,c] = multArr; //  requires us to know that 3 things are within multArr
 
+  // how to multiply our values using multiply function?
+  let product1 = multiply(a, b); // return value => [number, string]
+  let product2 = multiply(product1[0], c); // return value => [number, string];
+  let string = `The numbers ${a},${b},${c} have a product of ${product2[0]}.`;
+
+  return [product2[0], string];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
