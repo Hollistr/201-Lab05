@@ -88,6 +88,7 @@ function sumArray(sumArr) {
 }
 // Here is the test for sumAndMultiply(); uncomment it to run it
  testSumAndMultiply(2,3,4);
+
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
@@ -102,11 +103,18 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+    let [a,b,c] = multArr; //  requires us to know that 3 things are within multArr
 
+  // how to multiply our values using multiply function?
+  let product1 = multiply(a, b); // return value => [number, string]
+  let product2 = multiply(product1[0], c); // return value => [number, string];
+  let string = `The numbers ${a},${b},${c} have a product of ${product2[0]}.`;
+
+  return [product2[0], string];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
